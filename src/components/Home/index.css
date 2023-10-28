@@ -4,11 +4,23 @@
   height: auto;
 }
 
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .home-content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+ /* search-styleds */
+.home-search {
+  display: flex;
+  flex-direction: column;
 }
 
 .search-input-container {
@@ -20,7 +32,7 @@
   background: #2f2f43;
   padding: 0px 15px;
   border-radius: 5px;
-  margin: 29px 0px;
+  margin-top: 42px;
 }
 
 .search-input {
@@ -35,8 +47,17 @@
   letter-spacing: 0px;
   text-align: left;
   color: #94a3b8;
+  width: 100%;
 }
 
+.search-state-lists {
+  list-style-type: none;
+  min-width: 520px;
+  margin: 0px;
+  padding-left: 0px;
+}
+
+/* card-styles */
 .card-container {
   max-width: 979px;
   max-height: 142px;
@@ -95,6 +116,7 @@
   text-align: center;
 }
 
+/* state-table-styles */
 .state-table {
   display: flex;
   flex-direction: column;
@@ -102,6 +124,7 @@
   align-items: center;
   width: 1146px;
   border: 1px solid #475569;
+  border-radius: 12px;
 }
 
 .table-heading {
@@ -124,9 +147,33 @@
   border: none;
   outline: none;
   cursor: pointer;
+  margin-top: 5px;
+  color: #94a3b8 !important;
 }
 
 .state-result-data {
   list-style-type: none;
   width: 93%;
 }
+
+.heading {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #f8fafc;
+}
+
+.horizontal-line {
+  width: 100%;
+  border: 1px solid #475569;
+  color: #475569;
+}
+
+
+
+
+
+

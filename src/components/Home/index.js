@@ -1,8 +1,11 @@
 import { Component } from "react";
 import { BsSearch } from "react-icons/bs";
 import { FcGenericSortingAsc, FcGenericSortingDesc } from "react-icons/fc";
+import Loader from "react-loader-spinner";
 import Header from "../Header";
 import ListOfState from "../StateList";
+import Footer from "../Footer/footer";
+import SearchState from "../SearchStates/searchState";
 import "./index.css";
 
 const statesList = [
@@ -196,19 +199,19 @@ class Home extends Component {
         stateName: eachItem.state_name,
         stateCode: eachItem.state_code,
         listOfConfirmed: Object.keys(data)
-          .filter(stateItem => stateItem === eachItem.state_code)
+          .filter((stateItem) => stateItem === eachItem.state_code)
           .map((each) => data[each].total.confirmed),
         listOfRecovered: Object.keys(data)
-          .filter(stateItem => stateItem === eachItem.state_code)
+          .filter((stateItem) => stateItem === eachItem.state_code)
           .map((each) => data[each].total.recovered),
         listOfDeceased: Object.keys(data)
-          .filter(stateItem => stateItem === eachItem.state_code)
+          .filter((stateItem) => stateItem === eachItem.state_code)
           .map((each) => data[each].total.deceased),
         listOfOther: Object.keys(data)
-          .filter(stateItem => stateItem === eachItem.state_code)
+          .filter((stateItem) => stateItem === eachItem.state_code)
           .map((each) => data[each].total.other),
         listOfPopulation: Object.keys(data)
-          .filter(stateItem => stateItem === eachItem.state_code)
+          .filter((stateItem) => stateItem === eachItem.state_code)
           .map((each) => data[each].meta.population),
       }));
       this.setState({
@@ -234,6 +237,42 @@ class Home extends Component {
     });
   };
 
+  ascSort = () => {
+    const { listOfCovidStateData } = this.state;
+    const sort = listOfCovidStateData.sort((sortA, sortB) => {
+      const a = sortA.stateName.toUpperCase();
+      const b = sortB.stateName.toUpperCase();
+      return a > b ? 1 : -1;
+    });
+    this.setState({ listOfCovidStateData: sort });
+  };
+
+  descSort = () => {
+    const { listOfCovidStateData } = this.state;
+    const sort = listOfCovidStateData.sort((sortA, sortB) => {
+      const a = sortA.stateName.toUpperCase();
+      const b = sortB.stateName.toUpperCase();
+      return a < b ? 1 : -1;
+    });
+    this.setState({ listOfCovidStateData: sort });
+  };
+
+  listOfSearch = () => {
+    const { searchList } = this.state;
+    return (
+      <ul testid="searchresultsUnorderList" className="search-state-lists">
+        {searchList.map((each) => (
+          <SearchState
+            stateName={each.state_name}
+            stateCode={each.state_code}
+            key={each.state_code}
+            id={each.state_code}
+          />
+        ))}
+      </ul>
+    );
+  };
+
   listOfStateTable = () => {
     const { listOfCovidStateData } = this.state;
 
@@ -243,19 +282,30 @@ class Home extends Component {
           <ul className="table-heading">
             <li className="state-sorted">
               <p className="heading">States/UT</p>
-              <button type="button" testid="ascending-icon" className="sorting-btn">
+              <button
+                type="button"
+                testid="ascending-icon"
+                className="sorting-btn"
+                onClick={this.ascSort}
+              >
                 <FcGenericSortingAsc />
               </button>
-              <button type="button" testid="descending-icon" className="sorting-btn">
+              <button
+                type="button"
+                testid="descending-icon"
+                className="sorting-btn"
+                onClick={this.descSort}
+              >
                 <FcGenericSortingDesc />
               </button>
             </li>
-            <li>Confirmed</li>
-            <li>Active</li>
-            <li>Recovered</li>
-            <li>Deceased</li>
-            <li>Population</li>
+            <li className="heading">Confirmed</li>
+            <li className="heading">Active</li>
+            <li className="heading">Recovered</li>
+            <li className="heading">Deceased</li>
+            <li className="heading">Population</li>
           </ul>
+          <hr className="horizontal-line" />
           <ul className="state-result-data">
             {listOfCovidStateData.map((each) => (
               <ListOfState key={each.stateCode} stateList={each} />
@@ -326,7 +376,7 @@ class Home extends Component {
               />
             </li>
             <li>
-              <p >{totalDeceased}</p>
+              <p>{totalDeceased}</p>
             </li>
           </ul>
         </div>
@@ -335,23 +385,37 @@ class Home extends Component {
   };
 
   render() {
+    const { isLoading, searchList, searchInput } = this.state;
+    const searchResult = searchList.length === 0 ? "" : this.listOfSearch();
     return (
       <>
         <div className="home-container">
           <Header />
-          <div className="home-content-container">
-            <div className="search-input-container">
-              <BsSearch size={20} color="#94A3B8" />
-              <input
-                type="text"
-                placeholder="Enter the State"
-                className="search-input"
-                onChange={this.searchInputList}
-              />
+          {isLoading ? (
+            <div className="page-loader" testid="homeRouteLoader">
+              <Loader type="Oval" color="#007bff" height={50} width={50} />
             </div>
-            {this.covidCards()}
-            {this.listOfStateTable()}
-          </div>
+          ) : (
+            <>
+              <div className="home-content-container">
+                <div className="home-search">
+                  <div className="search-input-container">
+                    <BsSearch size={20} color="#94A3B8" />
+                    <input
+                      type="text"
+                      placeholder="Enter the State"
+                      className="search-input"
+                      onChange={this.searchInputList}
+                    />
+                  </div>
+                  {searchInput.length > 0 ? searchResult : ""}
+                </div>
+                {this.covidCards()}
+                {this.listOfStateTable()}
+              </div>
+            </>
+          )}
+          <Footer />
         </div>
       </>
     );
