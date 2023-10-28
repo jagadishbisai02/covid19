@@ -14,7 +14,6 @@ const ListOfState = (props) => {
   } = stateList;
   const active =
     listOfConfirmed - listOfRecovered - listOfDeceased - listOfOther;
-    console.log(listOfConfirmed)
 
   return (
     <>

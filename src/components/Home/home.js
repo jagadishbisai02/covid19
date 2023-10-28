@@ -6,7 +6,7 @@ import Header from "../Header";
 import ListOfState from "../StateList";
 import Footer from "../Footer/footer";
 import SearchState from "../SearchStates/searchState";
-import "./index.css";
+import "./home.css";
 
 const statesList = [
   {
@@ -180,7 +180,6 @@ class Home extends Component {
     const response = await fetch(apiUrl, options);
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       let activeCase = 0;
       let confirmCase = 0;
       let recoveredCase = 0;
