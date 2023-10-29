@@ -2,6 +2,9 @@
   background: #161625;
   max-width: 1440px;
   height: auto;
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
 }
 
 .page-loader {
@@ -17,14 +20,14 @@
   align-items: center;
   justify-content: center;
 }
- /* search-styleds */
+/* search-styleds */
 .home-search {
   display: flex;
   flex-direction: column;
 }
 
 .search-input-container {
-  min-width: 520px;
+  width: 520px;
   height: 57px;
   display: flex;
   justify-content: flex-start;
@@ -33,6 +36,9 @@
   padding: 0px 15px;
   border-radius: 5px;
   margin-top: 42px;
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
 }
 
 .search-input {
@@ -65,37 +71,36 @@
   justify-content: space-between;
   align-items: center;
   margin: 25px 0px;
+  @media screen and (max-width: 768px) {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
-.confirm-card {
+.home-card-containers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 132px;
   list-style-type: none;
-  text-align: center;
+  margin: 15px;
+}
+
+.confirmed {
   color: #ff073a;
-  margin: 15px;
 }
 
-.recovered-card {
-  width: 132px;
-  list-style-type: none;
-  text-align: center;
+.recovered {
   color: #28a745;
-  margin: 15px;
 }
 
-.active-card {
-  width: 132px;
-  list-style-type: none;
-  text-align: center;
+.active {
   color: #007bff;
-  margin: 15px;
 }
 
-.deceased-card {
-  width: 132px;
-  list-style-type: none;
-  text-align: center;
+.deceased {
   color: #6c757d;
-  margin: 15px;
 }
 
 .title {
@@ -117,6 +122,17 @@
 }
 
 /* state-table-styles */
+
+.state-table-container-home-page {
+  @media screen and (max-width: 768px) {
+    margin-left: auto;
+    margin-top: 225px;
+    max-width: 480px;
+    overflow-x: scroll;
+    margin-right: 10px;
+  }
+}
+
 .state-table {
   display: flex;
   flex-direction: column;
@@ -133,6 +149,7 @@
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
+
 }
 
 .state-sorted {
@@ -171,9 +188,3 @@
   border: 1px solid #475569;
   color: #475569;
 }
-
-
-
-
-
-

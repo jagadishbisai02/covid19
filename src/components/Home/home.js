@@ -259,7 +259,7 @@ class Home extends Component {
   listOfSearch = () => {
     const { searchList } = this.state;
     return (
-      <ul testid="searchresultsUnorderList" className="search-state-lists">
+      <ul testid="searchResultsUnorderedList" className="search-state-lists">
         {searchList.map((each) => (
           <SearchState
             stateName={each.state_name}
@@ -276,14 +276,17 @@ class Home extends Component {
     const { listOfCovidStateData } = this.state;
 
     return (
-      <>
-        <div className="state-table" testid="stateWiseCovidDataTable">
+      <div
+        className="state-table-container-home-page"
+        testid="stateWiseCovidDataTable"
+      >
+        <div className="state-table">
           <ul className="table-heading">
             <li className="state-sorted">
               <p className="heading">States/UT</p>
               <button
                 type="button"
-                testid="ascending-icon"
+                testid="ascendingSort"
                 className="sorting-btn"
                 onClick={this.ascSort}
               >
@@ -291,7 +294,7 @@ class Home extends Component {
               </button>
               <button
                 type="button"
-                testid="descending-icon"
+                testid="descendingSort"
                 className="sorting-btn"
                 onClick={this.descSort}
               >
@@ -311,7 +314,7 @@ class Home extends Component {
             ))}
           </ul>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -322,7 +325,7 @@ class Home extends Component {
     return (
       <>
         <div className="card-container">
-          <ul className="confirm-card">
+          <ul className="home-card-containers confirmed" testid="countryWideConfirmedCases">
             <li>
               <p className="title">Confirmed</p>
             </li>
@@ -336,7 +339,7 @@ class Home extends Component {
               <p className="counter">{totalConfirmed}</p>
             </li>
           </ul>
-          <ul className="active-card">
+          <ul className="home-card-containers active" testid="countryWideActiveCases">
             <li>
               <p className="title">Active</p>
             </li>
@@ -350,7 +353,7 @@ class Home extends Component {
               <p className="counter">{totalActive}</p>
             </li>
           </ul>
-          <ul className="recovered-card">
+          <ul className="home-card-containers recovered" testid="countryWideRecoveredCases">
             <li>
               <p className="title">Recovered</p>
             </li>
@@ -364,7 +367,7 @@ class Home extends Component {
               <p className="counter">{totalRecovered}</p>
             </li>
           </ul>
-          <ul className="deceased-card">
+          <ul className="home-card-containers deceased" testid="countryWideDeceasedCases">
             <li>
               <p className="title">Deceased</p>
             </li>

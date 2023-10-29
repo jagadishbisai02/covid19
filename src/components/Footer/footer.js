@@ -11,11 +11,11 @@ const Footer = () => {
             COVID19<span className="span-header">INDIA</span>
           </h1>
         </Link>
-        <p className='description'>we stand with everyone fighting on the front lines</p>
-        <div className='icons'>
-        <FiGithub size={35} color='#CBD5E1'/>
-        <FiInstagram size={35} color='#CBD5E1'/>
-        <FiTwitter size={35} color='#CBD5E1'/>
+        <p className='footer-description'>we stand with everyone fighting on the front lines</p>
+        <div className='footer-icons-container'>
+        <FiGithub className='footer-icons'/>
+        <FiInstagram className='footer-icons'/>
+        <FiTwitter className='footer-icons'/>
         </div>
       </div>
     </>

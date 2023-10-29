@@ -64,9 +64,9 @@ class Charts extends Component {
     const { chartsOther } = this.state;
 
     return (
-      <div>
+      <div className="line-chart-container" testid="lineChartsContainer">
         <LineChart
-          width={900}
+          width={500}
           height={250}
           data={chartsOther}
           margin={{ top: 5, right: 50, left: 20, bottom: 5 }}
@@ -90,22 +90,22 @@ class Charts extends Component {
   };
 
   graphCharts = () => (
-    <div>
+    <div className="charts-graphs-container">
       <h1 className="Charts-graph-heading">Daily Spread Trends</h1>
       <div className="line-chart-graph" testid="lineChartsContainer">
-        <div className="charts-grapg-list-margin confirmed-graph-background">
+        <div className="charts-graph-list-margin confirmed-graph-background">
           {this.graphList("confirmed", "#ff073a")}
         </div>
-        <div className="charts-grapg-list-margin active-graph-background">
+        <div className="charts-graph-list-margin active-graph-background">
           {this.graphList("active", "#007BFF")}
         </div>
-        <div className="charts-grapg-list-margin recovered-graph-background">
+        <div className="charts-graph-list-margin recovered-graph-background">
           {this.graphList("recovered", "#27A243")}
         </div>
-        <div className="charts-grapg-list-margin deceased-graph-background">
+        <div className="charts-graph-list-margin deceased-graph-background">
           {this.graphList("deceased", "#6C757D")}
         </div>
-        <div className="charts-grapg-list-margin tested-graph-background">
+        <div className="charts-graph-list-margin tested-graph-background">
           {this.graphList("tested", "#9673B9")}
         </div>
       </div>
@@ -116,7 +116,7 @@ class Charts extends Component {
     const { districtsChart } = this.props;
 
     const barChart = districtsChart.toLowerCase();
-    const maxBarChart = chartsList.slice(Math.max(chartsList.length - 15, 0));
+    const maxBarChart = chartsList.slice(Math.max(chartsList.length - 10, 0));
     let barColor = "#9A0E31";
     if (barChart === "confrimed") {
       barColor = "#9A0E31";
@@ -137,11 +137,11 @@ class Charts extends Component {
           <div className="chart-container">
             <div className="charts-barChart">
               <BarChart
-                width={900}
+                width={600}
                 height={331}
                 barSize={35}
                 data={maxBarChart}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
               >
                 <XAxis
                   dataKey="eachDate"

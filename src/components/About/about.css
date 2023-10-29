@@ -60,3 +60,10 @@
   list-style-type: none;
   padding-left: 0px;
 }
+
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
