@@ -325,56 +325,56 @@ class Home extends Component {
     return (
       <>
         <div className="card-container">
-          <ul className="home-card-containers confirmed" testid="countryWideConfirmedCases">
+          <ul className="country-wide-confirmed-cases" testid="countryWideConfirmedCases">
             <li>
               <p className="title">Confirmed</p>
             </li>
             <li>
               <img
                 src="https://res.cloudinary.com/df5wssoz1/image/upload/v1696820101/samples/Covid19/check-mark_1_r4m79y.png"
-                alt="confirmed"
+                alt="country wide confirmed cases pic"
               />
             </li>
             <li>
               <p className="counter">{totalConfirmed}</p>
             </li>
           </ul>
-          <ul className="home-card-containers active" testid="countryWideActiveCases">
+          <ul className="country-wide-active-cases" testid="countryWideActiveCases">
             <li>
               <p className="title">Active</p>
             </li>
             <li>
               <img
                 src="https://res.cloudinary.com/df5wssoz1/image/upload/v1696820101/samples/Covid19/protection_1_vzyvni.png"
-                alt="active"
+                alt="country wide active cases pic"
               />
             </li>
             <li>
               <p className="counter">{totalActive}</p>
             </li>
           </ul>
-          <ul className="home-card-containers recovered" testid="countryWideRecoveredCases">
+          <ul className="country-wide-recovered-cases" testid="countryWideRecoveredCases">
             <li>
               <p className="title">Recovered</p>
             </li>
             <li>
               <img
                 src="https://res.cloudinary.com/df5wssoz1/image/upload/v1696820101/samples/Covid19/recovered_1_jg6qzy.png"
-                alt="recovered"
+                alt="country wide recovered cases pic"
               />
             </li>
             <li>
               <p className="counter">{totalRecovered}</p>
             </li>
           </ul>
-          <ul className="home-card-containers deceased" testid="countryWideDeceasedCases">
+          <ul className="country-wide-deceased-cases" testid="countryWideDeceasedCases">
             <li>
               <p className="title">Deceased</p>
             </li>
             <li>
               <img
                 src="https://res.cloudinary.com/df5wssoz1/image/upload/v1696820101/samples/Covid19/breathing_1_g6ixah.png"
-                alt="deceased"
+                alt="country wide deceased cases pic"
               />
             </li>
             <li>

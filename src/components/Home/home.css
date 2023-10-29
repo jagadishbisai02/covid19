@@ -77,7 +77,7 @@
     justify-content: center;
   }
 }
-.home-card-containers {
+.country-wide-confirmed-cases {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,21 +85,39 @@
   width: 132px;
   list-style-type: none;
   margin: 15px;
-}
-
-.confirmed {
   color: #ff073a;
 }
 
-.recovered {
-  color: #28a745;
-}
-
-.active {
+.country-wide-active-cases {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 132px;
+  list-style-type: none;
+  margin: 15px;
   color: #007bff;
 }
 
-.deceased {
+.country-wide-recovered-cases {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 132px;
+  list-style-type: none;
+  margin: 15px;
+  color: #28a745;
+}
+
+.country-wide-deceased-cases {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 132px;
+  list-style-type: none;
+  margin: 15px;
   color: #6c757d;
 }
 
@@ -149,7 +167,6 @@
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
-
 }
 
 .state-sorted {
