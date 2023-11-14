@@ -1,39 +1,40 @@
-import { Component } from "react";
-import Loader from "react-loader-spinner";
-import Header from "../Header";
-import Footer from "../Footer/footer";
-import "./about.css";
+import {Component} from 'react'
+import Loader from 'react-loader-spinner'
+import Header from '../Header'
+import Footer from '../Footer/footer'
+import './about.css'
 
 class About extends Component {
-  state = { aboutDetails: [], isLoading: true };
+  state = {aboutDetails: [], isLoading: true}
+
   componentDidMount() {
-    this.getAboutDetails();
+    this.getAboutDetails()
   }
 
   getAboutDetails = async () => {
-    const ApiUrl = "https://apis.ccbp.in/covid19-faqs";
+    const ApiUrl = 'https://apis.ccbp.in/covid19-faqs'
     const options = {
-      method: "GET",
-    };
+      method: 'GET',
+    }
 
-    const response = await fetch(ApiUrl, options);
+    const response = await fetch(ApiUrl, options)
     if (response.ok) {
-      const data = await response.json();
-      const aboutData = data.faq.map((each) => ({
+      const data = await response.json()
+      const aboutData = data.faq.map(each => ({
         question: each.question,
         answer: each.answer,
         id: each.qno,
-      }));
+      }))
 
       this.setState({
         aboutDetails: aboutData,
         isLoading: false,
-      });
+      })
     }
-  };
+  }
 
   render() {
-    const { aboutDetails, isLoading } = this.state;
+    const {aboutDetails, isLoading} = this.state
     return (
       <div className="about-page">
         <Header />
@@ -49,7 +50,7 @@ class About extends Component {
               COVID-19 vaccines be ready for distribution
             </p>
             <ul className="about-page-unorder-page" testid="faqsUnorderedList">
-              {aboutDetails.map((eachItem) => (
+              {aboutDetails.map(eachItem => (
                 <li key={eachItem.id}>
                   <p className="question">{eachItem.question}</p>
                   <p className="answer">{eachItem.answer}</p>
@@ -61,8 +62,8 @@ class About extends Component {
 
         <Footer />
       </div>
-    );
+    )
   }
 }
 
-export default About;
+export default About

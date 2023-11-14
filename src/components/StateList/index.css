@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.link-class{
+.link-class {
   text-decoration: none;
 }
 .state-names {
@@ -15,7 +15,7 @@
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-  color: #F1F5F9 !important;
+  color: #f1f5f9;
 }
 
 .state-confirm {

@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import "./index.css";
+import {Link} from 'react-router-dom'
+import './index.css'
 
-const ListOfState = (props) => {
-  const { stateList } = props;
+const ListOfState = props => {
+  const {stateList, key} = props
   const {
     stateCode,
     stateName,
@@ -11,9 +11,9 @@ const ListOfState = (props) => {
     listOfOther,
     listOfDeceased,
     listOfPopulation,
-  } = stateList;
+  } = stateList
   const active =
-    listOfConfirmed - listOfRecovered - listOfDeceased - listOfOther;
+    listOfConfirmed - listOfRecovered - listOfDeceased - listOfOther
 
   return (
     <>
@@ -28,7 +28,7 @@ const ListOfState = (props) => {
         <p className="state-population">{listOfPopulation}</p>
       </li>
     </>
-  );
-};
+  )
+}
 
-export default ListOfState;
+export default ListOfState

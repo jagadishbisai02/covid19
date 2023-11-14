@@ -122,10 +122,8 @@
   justify-content: center;
   align-items: center;
   width: auto;
-  @media screen and (max-width:768px) {
+  @media screen and (max-width: 768px) {
     width: 523px;
     height: auto;
   }
 }
-
-

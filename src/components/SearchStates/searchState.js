@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
-import { BiChevronRightSquare } from "react-icons/bi";
-import "./searchState.css";
+import {Link} from 'react-router-dom'
+import {BiChevronRightSquare} from 'react-icons/bi'
+import './searchState.css'
 
-const SearchState = (props) => {
-  const { stateName, stateCode } = props;
+const SearchState = props => {
+  const {stateName, stateCode} = props
 
   return (
     <>
       <li className="search-state-container">
         <p className="search-state-names">{stateName}</p>
-        <button type="button" className="state-name-btn">
-          <Link to={`/state/${stateCode}`} className="link-state-code-search">
-            {stateCode} <BiChevronRightSquare size={18}/>
-          </Link>
-        </button>
+        <Link to={`/state/${stateCode}`} className="link-state-code-search">
+          <button type="button" className="state-name-btn">
+            {stateCode} <BiChevronRightSquare size={18} />
+          </button>
+        </Link>
       </li>
     </>
-  );
-};
+  )
+}
 
-export default SearchState;
+export default SearchState

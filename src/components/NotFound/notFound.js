@@ -1,20 +1,22 @@
-import { Link } from "react-router-dom";
-import "./notFound.css";
+import {Link} from 'react-router-dom'
+import './notFound.css'
 
 const NotFound = () => (
   <div className="not-found-container">
     <img
       src="https://res.cloudinary.com/df5wssoz1/image/upload/v1698556761/samples/Covid19/Vector_ariond.png"
-      alt="not-found"
+      alt="not-found-pic"
     />
     <h1 className="not-found-heading">PAGE NOT FOUND</h1>
     <p className="not-found-desc">
-      we’re sorry, the page you requested could not be found.Please go back to
-      the homepage
+      we are sorry, the page you requested could not be found
     </p>
-    <button type="button" className="home-btn">
-      <Link to="/" className="link-btn">Home</Link>
-    </button>
+
+    <Link to="/" className="link-btn">
+      <button type="button" className="home-btn">
+        Home
+      </button>
+    </Link>
   </div>
-);
-export default NotFound;
+)
+export default NotFound

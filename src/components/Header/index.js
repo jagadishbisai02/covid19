@@ -1,33 +1,33 @@
-import { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import "./index.css";
+import {Component} from 'react'
+import {Link, withRouter} from 'react-router-dom'
+import './index.css'
 
 class Header extends Component {
-  state = { showMenu: false };
+  state = {showMenu: false}
 
   toggleMenu = () => {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       showMenu: !prevState.showMenu,
-    }));
-  };
+    }))
+  }
 
-  closeMenu = () => this.setState({ showMenu: false });
+  closeMenu = () => this.setState({showMenu: false})
 
   render() {
-    const { showMenu } = this.state;
-    const { match } = this.props;
-    const { path } = match;
-    const homeClassName = path === "/" ? "link-name heighlight" : "link-name";
+    const {showMenu} = this.state
+    const {match} = this.props
+    const {path} = match
+    const homeClassName = path === '/' ? 'link-name heighlight' : 'link-name'
     const aboutClassName =
-      path === "/about" ? "link-name heighlight" : "link-name";
+      path === '/about' ? 'link-name heighlight' : 'link-name'
 
     return (
       <>
         <nav className="navbar-header">
           <Link to="/" className="link">
-            <h1 className="header">
+            <h4 className="header">
               COVID19<span className="span-header">INDIA</span>
-            </h1>
+            </h4>
           </Link>
           <ul className="nav-list">
             <Link to="/" className="link">
@@ -86,7 +86,7 @@ class Header extends Component {
           </div>
         ) : null}
       </>
-    );
+    )
   }
 }
-export default withRouter(Header);
+export default withRouter(Header)
